@@ -1,0 +1,32 @@
+{
+    "name": "mavenbird/module-cancelorder",
+    "description": "Magento 2 module to allow customers to cancel orders with reasons.",
+    "type": "magento2-module",
+    "version": "1.0.0",
+    "license": [
+        "proprietary"
+    ],
+    "authors": [
+        {
+            "name": "Mavenbird Team",
+            "email": "support@mavenbird.com",
+            "role": "Developer"
+        }
+    ],
+    "require": {
+        "php": "^7.4 || ^8.1",
+        "magento/framework": "^103.0",
+        "mavenbird/module-core": "*"
+
+    },
+    "autoload": {
+        "files": [
+            "registration.php"
+        ],
+        "psr-4": {
+            "Mavenbird\\CancelOrder\\": ""
+        }
+    },
+    "minimum-stability": "stable",
+    "prefer-stable": true
+}

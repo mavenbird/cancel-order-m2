@@ -1,0 +1,89 @@
+<?php
+/**
+ * Mavenbird Technologies Private Limited
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the EULA
+ * that is bundled with this package in the file LICENSE.txt.
+ * It is also available through the world-wide-web at this URL:
+ * http://mavenbird.com/Mavenbird-Module-License.txt
+ *
+ * =================================================================
+ *
+ * @category    Mavenbird
+ * @package     Mavenbird_CancelOrder
+ * @author      Mavenbird Team
+ * @copyright   Copyright (c) 2018-2024 Mavenbird Technologies Private Limited ( http://mavenbird.com )
+ * @license     http://mavenbird.com/Mavenbird-Module-License.txt
+ */
+
+/** @var \Magento\Framework\View\Element\Template $block */
+/** @var \Magento\Sales\Model\Order $order */
+$order = $block->getOrder();
+/** @var \Mavenbird\CancelOrder\Helper\Data $helper */
+$helper = $block->getHelper();
+$configEnabled = $helper->isEnabled();
+
+if ($order && $configEnabled) {
+    // Allowed statuses for cancel button
+    $allowedStatuses = ['pending', 'new'];
+
+    if ($order->canCancel() && in_array($order->getStatus(), $allowedStatuses, true)) : ?>
+        <button type="button"
+                class="action primary mavenbird-cancel-btn"
+                id="cancel-order-btn"
+                data-order-id="<?= $block->escapeHtmlAttr($order->getId()) ?>">
+            <?= $block->escapeHtml(__('Cancel Order')) ?>
+        </button>
+
+        <div id="cancel-order-popup" class="mavenbird-popup-overlay" style="display:none;">
+            <div class="mavenbird-popup">
+                <h3><?= $block->escapeHtml(
+                    __('Cancel Order # %1', $order->getIncrementId())
+                ) ?></h3>
+
+                <div class="mavenbird-popup-body">
+                    <label for="cancel-reason-select"><?= $block->escapeHtml(__('Select Reason')) ?></label>
+                    <select id="cancel-reason-select" class="mavenbird-select">
+                        <option value="Ordered by mistake"><?= $block->escapeHtml(__('Ordered by mistake')) ?></option>
+                        <option value="Found a better price elsewhere"><?= $block->escapeHtml(__('Found a better price elsewhere')) ?></option>
+                        <option value="Delivery time too long"><?= $block->escapeHtml(__('Delivery time too long')) ?></option>
+                        <option value="Changed my mind"><?= $block->escapeHtml(__('Changed my mind')) ?></option>
+                        <option value="Item no longer needed"><?= $block->escapeHtml(__('Item no longer needed')) ?></option>
+                        <option value="Applied wrong payment method"><?= $block->escapeHtml(__('Applied wrong payment method')) ?></option>
+                        <option value="Wanted a different product/variant"><?= $block->escapeHtml(__('Wanted a different product/variant')) ?></option>
+                        <option value="Placed a duplicate order"><?= $block->escapeHtml(__('Placed a duplicate order')) ?></option>
+                        <option value="Seller hasn’t confirmed/shipped yet"><?= $block->escapeHtml(__('Seller hasn’t confirmed/shipped yet')) ?></option>
+                        <option value="Other"><?= $block->escapeHtml(__('Other')) ?></option>
+                    </select>
+
+                    <div id="cancel-reason-other-box" class="mavenbird-textarea-box" style="display:none;">
+                        <textarea id="cancel-reason-other"
+                                  class="mavenbird-textarea"
+                                  placeholder="<?= $block->escapeHtmlAttr(__('Enter your reason')) ?>"></textarea>
+                    </div>
+                </div>
+
+                <div class="mavenbird-popup-footer">
+                    <button type="button" class="action primary" id="submit-cancel-order">
+                        <?= $block->escapeHtml(__('Submit')) ?>
+                    </button>
+                    <button type="button" class="action secondary mavenbird-close-popup">
+                        <?= $block->escapeHtml(__('Close')) ?>
+                    </button>
+                </div>
+            </div>
+        </div>
+    <?php
+    endif; // end allowed status check
+} // end if $order exists
+?>
+
+<script type="text/x-magento-init">
+{
+    "*": {
+        "Mavenbird_CancelOrder/js/cancel-order": {}
+    }
+}
+</script>

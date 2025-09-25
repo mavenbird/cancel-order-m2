@@ -1,0 +1,72 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Mavenbird Technologies Private Limited
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the EULA
+ * that is bundled with this package in the file LICENSE.txt.
+ * It is also available through the world-wide-web at this URL:
+ * http://mavenbird.com/Mavenbird-Module-License.txt
+ *
+ * =================================================================
+ *
+ * @category    Mavenbird
+ * @package     Mavenbird_CancelOrder
+ * @author      Mavenbird Team
+ * @copyright   Copyright (c) 2018-2024 Mavenbird Technologies Private Limited ( http://mavenbird.com )
+ * @license     http://mavenbird.com/Mavenbird-Module-License.txt
+ */
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Config:etc/system_file.xsd">
+
+    <system>
+        <tab id="mavenbird" translate="label" sortOrder="10">
+            <label>Mavenbird</label>
+        </tab>
+        <section id="cancelorder"
+                 translate="label"
+                 sortOrder="20"
+                 showInDefault="1"
+                 showInWebsite="1"
+                 showInStore="1">
+            <label>Cancel Order</label>
+            <tab>mavenbird</tab>
+            <resource>Mavenbird_CancelOrder::config</resource>
+
+            <group id="general"
+                   translate="label"
+                   type="text"
+                   sortOrder="10"
+                   showInDefault="1"
+                   showInWebsite="1"
+                   showInStore="1">
+                <label>General Settings</label>
+                <field id="module_info"
+                       translate="label"
+                       type="label"
+                       sortOrder="10"
+                       showInDefault="1"
+                       showInWebsite="1"
+                       showInStore="1">
+                    <label>Module Information</label>
+                    <frontend_model>Mavenbird\CancelOrder\Block\Adminhtml\System\Config\ModuleVersion</frontend_model>
+                </field>
+                <!-- Enable/Disable -->
+                <field id="enabled"
+                       translate="label"
+                       type="select"
+                       sortOrder="20"
+                       showInDefault="1"
+                       showInWebsite="1"
+                       showInStore="1">
+                    <label>Enable Cancel Order Feature</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+               
+            </group>
+        </section>
+    </system>
+</config>
