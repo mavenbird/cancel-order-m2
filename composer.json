@@ -1,5 +1,5 @@
 {
-    "name": "mavenbird/module-cancelorder",
+    "name": "mavenbird/module-cancel-order",
     "description": "Magento 2 module to allow customers to cancel orders with reasons.",
     "type": "magento2-module",
     "version": "1.0.0",
