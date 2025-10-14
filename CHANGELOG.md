@@ -1,5 +1,12 @@
 # Mavenbird_CancelOrder Module - Change Log
 
+## [1.0.1] - 2025-10-14
+### Added
+- ACL resource for admin configuration (added etc/acl.xml) to control access to Cancel Order settings.
+
+...existing code...
+# Mavenbird_CancelOrder Module - Change Log
+
 ## [1.0.0] - 2025-09-25
 ### Added
 - Initial release of the Mavenbird Cancel Order module.
