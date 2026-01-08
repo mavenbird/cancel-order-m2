@@ -1,3 +1,8 @@
+1.1.1 – December 30, 2025
+=============
+* Upgraded for compatibility with Magento 2.4.8-p3.
+* Verified and compatible with PHP version 8.3.
+
 # Mavenbird_CancelOrder Module - Change Log
 
 ## [1.0.1] - 2025-10-14
