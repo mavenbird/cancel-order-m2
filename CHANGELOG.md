@@ -1,7 +1,7 @@
 1.1.1 – December 30, 2025
 =============
 * Upgraded for compatibility with Magento 2.4.8-p3.
-* Verified and compatible with PHP version 8.3.
+* Compatible with PHP version 8.4.
 
 # Mavenbird_CancelOrder Module - Change Log
 
@@ -21,4 +21,5 @@
 - System configuration to enable/disable the cancel button.
 - Helper class `Mavenbird\CancelOrder\Helper\Data` for module settings.
 - Block class `CancelButton` with proper DI for helper and order repository.
+
 - Full PHPCS Magento2 standard compliance (escaped output and docblocks).
