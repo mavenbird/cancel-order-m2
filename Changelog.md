@@ -1,4 +1,4 @@
-## [1.0.0] - 2025-09-25
+## 1.0.0 - 2025-09-25
 ### Added
 - Initial release of the Mavenbird Cancel Order module.
 - Frontend cancel button on order history and order view pages.
@@ -8,4 +8,5 @@
 - Helper class `Mavenbird\CancelOrder\Helper\Data` for module settings.
 - Block class `CancelButton` with proper DI for helper and order repository.
 - Full PHPCS Magento2 standard compliance (escaped output and docblocks).
+
 
